@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#studentForm").submit(function(event) {
+                event.preventDefault();
+
+                const studentName = $("#studentName").val();
+                if (studentName) {
+                    $("#studentList").append(`<li class="p-2">- ${studentName}</li>`);
+                    alert("New student added successfully!");
+                    $("#studentName").val("");
+                } else {
+                    alert("Please enter a student name.");
+                }
+            });
+        });
+    </script>
+      <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="m-20 text-center">
+        <form id="studentForm" class="w-full mx-auto">
+            <div>
+                <label for="studentName">Student Name:</label>
+                <input class="bg-gray-300 text-xl rounded-lg p-2" type="text" id="studentName" name="studentName" required>
+
+            </div>
+            <button class="m-2 bg-blue-300 p-2 rounded-lg" type="submit">Add Student</button>
+        </form>
+        <div class="bg-blue-300 text-start w-4/12 mx-auto rounded-lg mt-3">
+            <ul id="studentList">
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>
